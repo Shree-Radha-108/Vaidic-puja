@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>वैदिक पूजा - आचार्य नीरज ओझा (वृंदावन)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Yatra+One&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .hindi-title { font-family: 'Yatra One', cursive; }
+        .lite-banner { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); }
+        /* Smooth Slide-in Effect for Menu */
+        .menu-transition { transition: transform 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-amber-50/30 text-gray-700 relative">
+
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b-2 border-amber-200">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleMenu()" class="text-amber-700 hover:text-orange-600 focus:outline-none p-1 text-2xl transition">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="flex items-center space-x-1.5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Om_symbol.svg/1200px-Om_symbol.svg.png" alt="Om" class="w-6 h-6 opacity-70">
+                    <span class="text-xl md:text-2xl font-black text-amber-700 tracking-wide hindi-title">वैदिक<span class="text-orange-500">पूजा</span></span>
+                </div>
+            </div>
+
+            <nav class="space-x-6 hidden lg:flex font-semibold text-gray-500">
+                <a href="#about" class="hover:text-amber-600 transition">परिचय</a>
+                <a href="#pujas" class="hover:text-amber-600 transition">ऑनलाइन पूजा</a>
+                <a href="#upay" class="hover:text-amber-600 transition">विशेष उपाय</a>
+            </nav>
+
+            <button onclick="contactPanditJi('सामान्य परामर्श')" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full font-bold shadow-sm transition transform hover:scale-105 text-xs md:text-sm flex items-center gap-1.5">
+                <i class="fa-brands fa-whatsapp text-sm md:text-base"></i> संपर्क करें
+            </button>
+        </div>
+    </header>
+
+    <div id="menuOverlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/40 z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+    <div id="sideMenu" class="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-2xl transform -translate-x-full menu-transition border-r-4 border-amber-500">
+        <div class="bg-gradient-to-br from-amber-500 to-orange-600 p-6 text-white relative">
+            <button onclick="toggleMenu()" class="absolute top-4 right-4 text-white hover:text-amber-200 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center space-x-3 mt-4">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
+                    <img src=  "https://share.google/images/4kMYnJZnu4RlssEEM" alt="Om" class="w-7 h-7">
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg leading-tight">वैदिक पूजा </h4>
+                    <p class="text-xs text-amber-100">श्री धाम वृंदावन</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="p-4 space-y-1 font-semibold text-gray-700">
+            <a href="#" onclick="toggleMenu()" class="flex items-center space-x-4 px-4 py-3 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition">
+                <i class="fa-solid fa-house text-amber-600 w-5"></i> <span>होम (Home)</span>
+            </a>
+            <a href="#pujas" onclick="toggleMenu()" class="flex items-center space-x-4 px-4 py-3 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition">
+                <i class="fa-solid fa-gopuram text-amber-600 w-5"></i> <span>ऑनलाइन पूजा</span>
+            </a>
+            <a href="#upay" onclick="toggleMenu()" class="flex items-center space-x-4 px-4 py-3 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-600 w-5"></i> <span>विशेष उपाय</span>
+            </a>
+            <hr class="border-gray-100 my-2">
+            <a href="javascript:void(0)" onclick="toggleMenu(); contactPanditJi('आचार्य जी को घर पर बुलाना है')" class="flex items-center space-x-4 px-4 py-3 rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-100 transition border border-orange-100 shadow-sm">
+                <i class="fa-solid fa-house-user text-orange-600 w-5 animate-bounce"></i> <span>आचार्य जी को घर बुलाएं</span>
+            </a>
+        </nav>
+
+        <div class="absolute bottom-4 left-0 w-full px-6 text-center text-xs text-gray-400">
+            <p>आचार्य नीरज ओझा जी से जुड़ें</p>
+            <p class="font-bold text-amber-600 mt-0.5">+91 9389361432</p>
+        </div>
+    </div>
+
+    <section class="lite-banner py-12 px-4 text-center border-b border-amber-100">
+        <div class="max-w-3xl mx-auto">
+            <div class="inline-block bg-amber-100 border border-amber-200 rounded-full px-4 py-1 mb-3">
+                <span class="text-amber-700 font-bold text-xs"><i class="fa-solid fa-location-dot"></i> श्री धाम वृंदावन</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-extrabold text-amber-800 mb-3 hindi-title">
+                आचार्य नीरज ओझा जी
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed mb-5">
+                वैदिक अनुष्ठान, सटीक कुण्डली विश्लेषण और हस्तरेखा द्वारा आपके जीवन की सभी बाधाओं का चमत्कारी और शास्त्रोक्त निवारण।
+            </p>
+            <button onclick="contactPanditJi('संपूर्ण जीवन विश्लेषण')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-5 rounded-full text-xs md:text-sm shadow-sm transition transform hover:scale-105 flex items-center gap-2 mx-auto">
+                <i class="fa-solid fa-phone-volume"></i> समस्या साझा करें
+            </button>
+        </div>
+    </section>
+
+    <section id="about" class="container mx-auto px-4 py-10">
+        <div class="bg-white p-5 md:p-8 rounded-2xl shadow-sm border border-amber-100 flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/3 text-center relative">
+                <div class="relative inline-block">
+                    <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&q=80" alt="Acharya Niraj Ojha" class="w-36 h-36 md:w-48 md:h-48 rounded-full object-cover mx-auto border-4 border-amber-100 shadow-md">
+                </div>
+                <span class="absolute bottom-1 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm border border-white">
+                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> ऑनलाइन हैं
+                </span>
+            </div>
+            <div class="w-full md:w-2/3">
+                <span class="text-amber-600 font-bold tracking-wide text-[10px] uppercase">मुख्य ज्योतिषाचार्य</span>
+                <h3 class="text-lg md:text-xl font-extrabold text-gray-800 mb-1.5 hindi-title">आचार्य नीरज ओझा</h3>
+                <p class="text-gray-600 leading-relaxed text-xs md:text-sm mb-3">
+                    जय श्री राधे! मैं पवित्र तीर्थ स्थल <strong>श्री धाम वृंदावन</strong> से हूँ। मुझे वैदिक शास्त्र, ज्योतिष शास्त्र, कुण्डली विश्लेषण और विभिन्न पौराणिक पूजा अनुष्ठान करवाने का 12 वर्षों का गहन अनुभव है।
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <div class="bg-amber-50/60 px-3 py-1.5 rounded-lg border border-amber-100 flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-xs text-amber-600"></i>
+                        <span class="text-xs font-bold text-gray-800">9389361432</span>
+                    </div>
+                    <div class="bg-amber-50/60 px-3 py-1.5 rounded-lg border border-amber-100 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-xs text-amber-600"></i>
+                        <span class="text-xs font-bold text-gray-800">वृंदावन धाम</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pujas" class="bg-orange-50/30 py-10 border-y border-amber-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-6">
+                <h3 class="text-lg md:text-2xl font-extrabold text-gray-800 hindi-title">विशेष ऑनलाइन पूजा सेवाएँ</h3>
+                <p class="text-gray-500 text-[11px] mt-0.5">श्री धाम वृंदावन से सीधे आचार्य जी द्वारा संकल्पित</p>
+                <div class="w-12 h-0.5 bg-amber-400 mx-auto mt-2 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 md:gap-6 max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1609137144814-7bc382b63546?auto=format&fit=crop&w=400&q=80" alt="Puja" class="w-full h-28 md:h-44 object-cover">
+                    <div class="p-3 md:p-5 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-gray-800 mb-1">मनोकामना पूर्ति पाठ</h4>
+                            <p class="text-gray-500 text-[10px] md:text-xs line-clamp-2 md:line-clamp-none mb-3">जीवन की सभी बाधाओं को दूर कर मनोकामना सिद्धि के लिए विशेष वैदिक पाठ।</p>
+                        </div>
+                        <button onclick="bookPuja('मनोकामना पूर्ति पाठ')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 md:py-2 rounded-lg text-[11px] md:text-xs transition shadow-sm">
+                            अभी बुक करें →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=400&q=80" alt="Puja" class="w-full h-28 md:h-44 object-cover">
+                    <div class="p-3 md:p-5 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-gray-800 mb-1">सिद्ध महा रुद्राभिषेक</h4>
+                            <p class="text-gray-500 text-[10px] md:text-xs line-clamp-2 md:line-clamp-none mb-3">सुख, समृद्धि, धन वृद्धि और आरोग्य प्राप्ति के लिए महादेव का विशेष अभिषेक।</p>
+                        </div>
+                        <button onclick="bookPuja('सिद्ध महा रुद्राभिषेक')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 md:py-2 rounded-lg text-[11px] md:text-xs transition shadow-sm">
+                            अभी बुक करें →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1602693680190-7f863175344d?auto=format&fit=crop&w=400&q=80" alt="Puja" class="w-full h-28 md:h-44 object-cover">
+                    <div class="p-3 md:p-5 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-gray-800 mb-1">पितृदोष मुक्ति हेतु पाठ</h4>
+                            <p class="text-gray-500 text-[10px] md:text-xs line-clamp-2 md:line-clamp-none mb-3">पितृ शांति, गृह क्लेश मुक्ति और वंश वृद्धि के लिए विशेष पौराणिक अनुष्ठान।</p>
+                        </div>
+                        <button onclick="bookPuja('पितृदोष मुक्ति हेतु पाठ')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 md:py-2 rounded-lg text-[11px] md:text-xs transition shadow-sm">
+                            अभी बुक करें →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&q=80" alt="Puja" class="w-full h-28 md:h-44 object-cover">
+                    <div class="p-3 md:p-5 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-sm md:text-base font-bold text-gray-800 mb-1">यमुना आरती व दीपदान</h4>
+                            <p class="text-gray-500 text-[10px] md:text-xs line-clamp-2 md:line-clamp-none mb-3">मानसिक शांति और कष्टों के निवारण हेतु श्री यमुना जी के पावन घाट पर महाआरती।</p>
+                        </div>
+                        <button onclick="bookPuja('यमुना आरती एवं दीपदान')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 md:py-2 rounded-lg text-[11px] md:text-xs transition shadow-sm">
+                            अभी बुक करें →
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="upay" class="container mx-auto px-4 py-10">
+        <div class="text-center mb-6">
+            <h3 class="text-lg md:text-2xl font-extrabold text-gray-800 hindi-title">हमारी सेवाएँ एवं अचूक उपाय</h3>
+            <p class="text-gray-500 text-[11px] mt-0.5">हर समस्या का समाधान, व्हाट्सएप पर सीधे संपर्क करें</p>
+            <div class="w-12 h-0.5 bg-amber-400 mx-auto mt-2 rounded"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 md:gap-6 max-w-4xl mx-auto">
+            
+            <div class="bg-blue-50/60 border border-blue-100 rounded-xl p-3 md:p-5 text-center flex flex-col justify-between">
+                <div>
+                    <div class="text-lg md:text-2xl text-blue-500 mb-1"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4 class="text-sm md:text-base font-bold text-blue-900 mb-1">व्यापार में तरक्की</h4>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-3 line-clamp-2">कारोबार में घाटा रोकने और धन वृद्धि के लिए सिद्ध पौराणिक उपाय।</p>
+                </div>
+                <button onclick="contactPanditJi('व्यापार में तरक्की का उपाय')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-1.5 rounded-lg text-[11px] md:text-xs transition">उपाय जानें →</button>
+            </div>
+
+            <div class="bg-orange-50/60 border border-orange-100 rounded-xl p-3 md:p-5 text-center flex flex-col justify-between">
+                <div>
+                    <div class="text-lg md:text-2xl text-orange-500 mb-1"><i class="fa-solid fa-baby"></i></div>
+                    <h4 class="text-sm md:text-base font-bold text-orange-900 mb-1">संतान प्राप्ति उपाय</h4>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-3 line-clamp-2">संतान सुख बाधा दूर करने के लिए विशेष गोपाल सहस्रनाम अनुष्ठान।</p>
+                </div>
+                <button onclick="contactPanditJi('पुत्र रत्न/संतान प्राप्ति का उपाय')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-1.5 rounded-lg text-[11px] md:text-xs transition"> उपाय जानें →</button>
+            </div>
+
+            <div class="bg-rose-50/60 border border-rose-100 rounded-xl p-3 md:p-5 text-center flex flex-col justify-between">
+                <div>
+                    <div class="text-lg md:text-2xl text-rose-500 mb-1"><i class="fa-solid fa-heart"></i></div>
+                    <h4 class="text-sm md:text-base font-bold text-rose-900 mb-1">मनचाहा प्यार व विवाह</h4>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-3 line-clamp-2">प्रेम विवाह अड़चन और रूठे साथी को मनाने के लिए शास्त्रीय विधि।</p>
+                </div>
+                <button onclick="contactPanditJi('मनचाहा प्यार एवं विवाह उपाय')" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-1.5 rounded-lg text-[11px] md:text-xs transition">उपाय जानें →</button>
+            </div>
+
+            <div class="bg-emerald-50/60 border border-emerald-100 rounded-xl p-3 md:p-5 text-center flex flex-col justify-between">
+                <div>
+                    <div class="text-lg md:text-2xl text-emerald-500 mb-1"><i class="fa-solid fa-hand-sparkles"></i></div>
+                    <h4 class="text-sm md:text-base font-bold text-emerald-900 mb-1">हस्तरेखा भाग्य दर्शन</h4>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-3 line-clamp-2">हाथ की फोटो भेजकर भविष्य, नौकरी और भाग्य का सटीक फल जानें।</p>
+                </div>
+                <button onclick="contactPanditJi('हस्तरेखा दिखाकर भाग्य जानना है')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-1.5 rounded-lg text-[11px] md:text-xs transition">हाथ दिखाएं →</button>
+            </div>
+
+            <div class="bg-purple-50/60 border border-purple-100 rounded-xl p-3 md:p-5 text-center flex flex-col justify-between">
+                <div>
+                    <div class="text-lg md:text-2xl text-purple-500 mb-1"><i class="fa-solid fa-moon"></i></div>
+                    <h4 class="text-sm md:text-base font-bold text-purple-900 mb-1">शिशु राशि नामकरण</h4>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-3 line-clamp-2">नवजात शिशु का जन्म नक्षत्र, सही राशि और मूल शांति की जानकारी।</p>
+                </div>
+                <button onclick="contactPanditJi('शिशु की राशि एवं कुण्डली बनवानी है')" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-1.5 rounded-lg text-[11px] md:text-xs transition">राशि निकालें →</button>
+            </div>
+
+            <div class="bg-amber-50/60 border border-amber-100 rounded-xl p-3 md:p-5 text-center flex flex-col justify-between">
+                <div>
+                    <div class="text-lg md:text-2xl text-amber-500 mb-1"><i class="fa-solid fa-house-chimney-window"></i></div>
+                    <h4 class="text-sm md:text-base font-bold text-amber-900 mb-1">गृह प्रवेश व कुण्डली</h4>
+                    <p class="text-gray-500 text-[10px] md:text-xs mb-3 line-clamp-2">नए घर का शुभ मुहूर्त, वास्तु शांति और सम्पूर्ण कुण्डली निर्माण।</p>
+                </div>
+                <button onclick="contactPanditJi('गृह प्रवेश / ऑनलाइन कुण्डली के लिए')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 rounded-lg text-[11px] md:text-xs transition">बुकिंग करें →</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-white py-12 border-b border-amber-100 overflow-hidden">
+        <div class="container mx-auto px-4 max-w-xl">
+            <div class="text-center mb-6">
+                <h3 class="text-lg md:text-2xl font-extrabold text-gray-800 hindi-title">यूज़र्स की राय</h3>
+                <div class="w-12 h-0.5 bg-amber-400 mx-auto mt-2 rounded"></div>
+            </div>
+
+            <div class="bg-amber-50/40 border border-amber-100 rounded-3xl p-6 md:p-8 shadow-sm relative text-center min-h-[280px] flex flex-col justify-center">
+                
+                <div class="review-slide block">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="User" class="w-16 h-16 rounded-full object-cover mx-auto border-2 border-amber-300 shadow-sm mb-4">
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic px-2">
+                        "पहले मुझे लगता था कि ऑनलाइन पूजा संभव नहीं है, लेकिन आचार्य नीरज जी द्वारा कराई गई रुद्राभिषेक पूजा के बाद घर में जो सकारात्मक ऊर्जा आई, उसने मेरा नजरिया बदल दिया।"
+                    </p>
+                    <h4 class="font-bold text-gray-800 text-sm mt-4">अन्या देशमुख</h4>
+                    <p class="text-[10px] text-gray-400">पुणे</p>
+                </div>
+
+                <div class="review-slide hidden">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="User" class="w-16 h-16 rounded-full object-cover mx-auto border-2 border-amber-300 shadow-sm mb-4">
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic px-2">
+                        "व्यापार में लगातार घाटा हो रहा था। आचार्य जी से व्हाट्सएप पर संपर्क करके उपाय जाना और पूजा करवाई, आज ठाकुर जी की कृपा से काम बहुत बढ़िया चल रहा है।"
+                    </p>
+                    <h4 class="font-bold text-gray-800 text-sm mt-4">राहुल शर्मा</h4>
+                    <p class="text-[10px] text-gray-400">दिल्ली</p>
+                </div>
+
+                <div class="review-slide hidden">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="User" class="w-16 h-16 rounded-full object-cover mx-auto border-2 border-amber-300 shadow-sm mb-4">
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic px-2">
+                        "घर में हमेशा क्लेश रहता था। आचार्य जी के कहने पर पितृदोष शांति का पाठ ऑनलाइन करवाया। अब घर में बहुत शांति है और सब खुश हैं। बहुत-बहुत धन्यवाद!"
+                    </p>
+                    <h4 class="font-bold text-gray-800 text-sm mt-4">शालिनी सिंह</h4>
+                    <p class="text-[10px] text-gray-400">लखनऊ</p>
+                </div>
+
+                <div class="review-slide hidden">
+                    <img src="https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80" alt="User" class="w-16 h-16 rounded-full object-cover mx-auto border-2 border-amber-300 shadow-sm mb-4">
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic px-2">
+                        "मैंने अपने नवजात बच्चे की राशि और नामकरण के लिए कुंडली बनवाई थी। आचार्य जी ने एक-एक बात बहुत सरल भाषा में समझाई और सटीक मार्गदर्शन दिया।"
+                    </p>
+                    <h4 class="font-bold text-gray-800 text-sm mt-4">विक्रम जोशी</h4>
+                    <p class="text-[10px] text-gray-400">मुंबई</p>
+                </div>
+
+                <div class="review-slide hidden">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="User" class="w-16 h-16 rounded-full object-cover mx-auto border-2 border-amber-300 shadow-sm mb-4">
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic px-2">
+                        "वृंदावन आए बिना इतनी पवित्रता से यमुना आरती और दीपदान का संकल्प पूरा होगा, सोचा नहीं था। लाइव वीडियो देखकर मन तृप्त हो गया। जय श्री राधे!"
+                    </p>
+                    <h4 class="font-bold text-gray-800 text-sm mt-4">मीरा अग्रवाल</h4>
+                    <p class="text-[10px] text-gray-400">इंदौर</p>
+                </div>
+
+                <div class="flex justify-center space-x-2 mt-6">
+                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-orange-500 transition-all duration-300"></span>
+                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300"></span>
+                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300"></span>
+                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300"></span>
+                    <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-amber-900/90 text-amber-100 py-8 text-center text-xs border-t-4 border-amber-400">
+        <p class="text-xl font-bold text-white mb-1 hindi-title">🔱 वैदिक पूजा</p>
+        <p class="text-amber-300 font-medium mb-3">श्री धाम वृंदावन (आचार्य नीरज ओझा)</p>
+        <p class="mb-4 font-semibold text-gray-200"><i class="fa-solid fa-phone"></i> +91 9389361432</p>
+        <p class="text-[10px] text-amber-200/40">&copy; 2026 वैदिक पूजा, वृंदावन धाम। सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <script>
+        const PANDIT_WHATSAPP = "919389361432"; 
+
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            const overlay = document.getElementById('menuOverlay');
+            
+            if(sideMenu.classList.contains('-translate-x-full')) {
+                sideMenu.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            } else {
+                sideMenu.classList.add('-translate-x-full');
+                overlay.classList.remove('opacity-100');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        function contactPanditJi(serviceName) {
+            const message = `जय श्री राधे आचार्य जी,%0A%0Aमैं *${serviceName}* के विषय में आपसे मार्गदर्शन चाहता/चाहती हूँ। कृपया सहायता करें।`;
+            window.open(`https://wa.me/${PANDIT_WHATSAPP}?text=${message}`, '_blank');
+        }
+
+        function bookPuja(pujaName) {
+            const message = `जय श्री राधे आचार्य जी,%0A%0Aमैं वृंदावन से ऑनलाइन *${pujaName}* बुक करना चाहता/चाहती हूँ।`;
+            window.open(`https://wa.me/${PANDIT_WHATSAPP}?text=${message}`, '_blank');
+        }
+
+        // Automatic Review Slideshow Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.review-slide');
+        const dots = document.querySelectorAll('.dot-indicator');
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('block');
+            slides[currentSlide].classList.add('hidden');
+            dots[currentSlide].classList.remove('bg-orange-500');
+            dots[currentSlide].classList.add('bg-gray-300');
+
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            slides[currentSlide].classList.remove('hidden');
+            slides[currentSlide].classList.add('block');
+            dots[currentSlide].classList.remove('bg-gray-300');
+            dots[currentSlide].classList.add('bg-orange-500');
+        }
+
+        // Change slide automatically every 3 seconds (3000ms)
+        setInterval(showNextSlide, 3000);
+    </script>
+</body>
+</html>
